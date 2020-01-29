@@ -61,7 +61,7 @@
 
 <body>
   <div id="inputPanel">
-    <h3>A few questions for you</h3>
+    <h3>Madlib game</h3>
     <p> First Name:
       <input id="firstName" type="text" placeholder="first Name" name"" value"">
     </p>
@@ -71,7 +71,7 @@
     <p>Somewhere to visit:
       <input id="place" type="text" placeholder="place">
     </p>
-    <button id="submit">Submit your answers</button>
+    <button id="submit">Submit</button>
     <p class="warning">Please answer all questions.</p>
 
   </div>
@@ -82,11 +82,10 @@
   </div>
   <script>
     //variables to hold references to markup elements
-
-
-
-
-
+    // let outputPanel = document.querySelector('#outputPanel')
+    // outputPanel.className = "displayNone"
+    // let warning.className = document.querySelector('.warning')
+    // warning.className = "displayNone"
 
     let submit = document.querySelector('#submit')
     submit.addEventListener('click', changeClass, false)
@@ -100,13 +99,9 @@
       }
     }
 
-    let again = document.querySelector('#again')
-    again.addEventListener('click', resetPage, false)
-    ///////////////////////////////// hide bottom
-    // let outputPanel = document.querySelector('#outputPanel')
-    // outputPanel.className = "displayNone"
-    // let warning = document.querySelector('#warning')
-    // warning.className = "displayNone"
+
+    // let again = document.querySelector('#again')
+    // again.addEventListener('click', resetPage, false)\
 
     ///////////////////////// again button?
     // again.addEventListener('click', reset, false)
@@ -128,12 +123,12 @@
 
 
 
-  function processForm() {
-      theStory.className = 'displayBlock'
-      let firstNameText = firstNameText.value
-      theStory.textContent = "Welcome, "
-      theStory.textContent += firstNameText
-      firstName.textContent += ". Are we friends?"
+    function processForm() {
+    //   theStory.className = 'displayBlock'
+    //   let firstNameText = firstNameText.value
+    //   theStory.textContent = "Welcome, "
+    //   theStory.textContent += firstNameText
+    //   firstName.textContent += ". Are we friends?"
     }
 
 
@@ -152,14 +147,17 @@
 
     }
 
+    let again = document.querySelector('#again')
+    again.addEventListener('click', resetPage, false)
+
     function resetPage() {
-      // if (outputPanel.className == 'displayNone') {
-      //   inputPanel.className = 'displayblock'
-      // } else {
-      //   outputPanel.className = 'displayNone'
-      //
-      // }
-      //put stuff here to reset the page so the user can try again
+      if (inputPanel.className == 'displayNone') {
+        inputPanel.className = 'displayblock'
+      } else {
+        inputPanel.className = 'displayNone'
+
+      }
+      // put stuff here to reset the page so the user can try again
 
     }
   </script>
