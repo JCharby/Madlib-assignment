@@ -39,6 +39,7 @@
       border-radius: 2em;
       padding: 0.5em;
       margin-top: 1em;
+      cursor: pointer;
     }
 
     input {
@@ -61,7 +62,7 @@
 
 <body>
   <div id="inputPanel">
-    <h3>Madlib game</h3>
+    <h3>Mad libs game</h3>
     <p> First Name:
       <input id="firstName" type="text" placeholder="first Name" name"" value"">
     </p>
@@ -72,32 +73,68 @@
       <input id="place" type="text" placeholder="place">
     </p>
     <button id="submit">Submit</button>
-    <p class="warning">Please answer all questions.</p>
+    <p id="warning">Please answer all questions.</p>
 
   </div>
   <div id="outputPanel">
     <p>Your story....</p>
-    <p id="theStory">junk</p>
+    <p id="theStory1"></p>
+    <p id="theStory2"></p>
+    <p id="theStory3"></p>
     <button id="again">Again?</button>
   </div>
   <script>
+  let inputPanel = document.querySelector('#inputPanel')
+  let outputPanel = document.querySelector('#outputPanel')
+  let warning = document.querySelector('#warning')
+  let submit = document.querySelector('#submit')
+  let again = document.querySelector('#again')
+  let firstName = document.querySelector('#firstName')
+  let faveMovie = document.querySelector('#faveMovie')
+  let place = document.querySelector('#place')
+  let theStory1 = document.querySelector('#theStory1')
+  let theStory2 = document.querySelector('#theStory2')
+  let theStory3 = document.querySelector('#theStory3')
+  //butten event listeners
+  // submit.addEventListener('click', writeStory, false)
+  submit.addEventListener('click', checkComplete, false)
+  again.addEventListener('click', resetPage, false)
+
+  window.addEventListener('keydown  ',keyDownHandler, false)
+
+  outputPanel.className = "displayNone"
+  warning.className = "displayNone"
+  firstName.focus()
+
+  function keyDownHandler(evt){
+    //do something when the enter key is pressed
+    //enter keycode: 13
+    console.log(evt.keyCode);
+    if (evt.keyCode == 13){
+      console.log('enter pressed');
+      checkComplete()
+
+    }
+  }
+
+
     //variables to hold references to markup elements
     // let outputPanel = document.querySelector('#outputPanel')
     // outputPanel.className = "displayNone"
     // let warning.className = document.querySelector('.warning')
     // warning.className = "displayNone"
-
-    let submit = document.querySelector('#submit')
-    submit.addEventListener('click', changeClass, false)
-
-    function changeClass() {
-      if (inputPanel.className == 'displayNone') {
-        inputPanel.className = 'displayblock'
-      } else {
-        inputPanel.className = 'displayNone'
-
-      }
-    }
+// ///////////////////////////
+    // let submit = document.querySelector('#submit')
+    // submit.addEventListener('click', changeClass, false)
+    //
+    // function changeClass() {
+    //   if (inputPanel.className == 'displayNone') {
+    //     inputPanel.className = 'displayblock'
+    //   } else {
+    //     inputPanel.className = 'displayNone'
+    //
+    //   }
+    // }
 
 
     // let again = document.querySelector('#again')
@@ -139,24 +176,65 @@
     //action functions
     function checkComplete() {
       //verify the user filled in the form
+      if(firstName.value == ""){
+        warning.textContent = "provide a name"
+        warning.className = "displayBlock"
+      } else if (favMovie.value == "") {
+        warning.textContent = "provide a movie"
+        warning.className = "displayBlock"
+      } else if (place.value == "") {
+        warning.textContent = "provide a place"
+        warning.className = "displayBlock"
+      } else {
+        writeStory()
+      }
 
     }
 
     function writeStory() {
       //grab the input values to write the story
+      console.log("writeStory");
+      let finishedStory1 = ""
+      let finishedStory2 = ""
+      let finishedStory3 = ""
+      finishedStory1 += "Welcome, " + firstName.value + ". "
+      finishedStory1 += "I bet you are a nice person, " + firstName.value + ". "
+      finishedStory2 += "Why do you like the movie " + favMovie.value + "? "
+      finishedStory3 += "Why did you name your pet " + place.value + "? "
+
+      theStory1.textContent = finishedStory1
+      theStory2.textContent = finishedStory2
+      theStory3.textContent = finishedStory3
+
+      inputPanel.className = "displayNone"
+      outputPanel.className ="displayBlock"
+
+
+
+
 
     }
 
-    let again = document.querySelector('#again')
-    again.addEventListener('click', resetPage, false)
+    // let again = document.querySelector('#again')
+    // again.addEventListener('click', resetPage, false)
 
     function resetPage() {
-      if (inputPanel.className == 'displayNone') {
-        inputPanel.className = 'displayblock'
-      } else {
-        inputPanel.className = 'displayNone'
+      console.log("resetPage");
 
-      }
+      inputPanel.className = "displayBlock"
+      outputPanel.className ="displayNone"
+      warning.className = "displayNone"
+
+      firstName.value = ""
+      favMovie.value = ""
+      place.value = ""
+
+      // if (inputPanel.className == 'displayNone') {
+      //   inputPanel.className = 'displayblock'
+      // } else {
+      //   inputPanel.className = 'displayNone'
+      //
+      // }
       // put stuff here to reset the page so the user can try again
 
     }
