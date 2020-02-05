@@ -63,14 +63,14 @@
 <body>
   <div id="inputPanel">
     <h3>Mad libs game</h3>
-    <p> First Name:
-      <input id="firstName" type="text" placeholder="first Name" name"" value"">
+    <p> Name:
+      <input id="firstName" type="text" placeholder="Name" name"" value"">
     </p>
-    <p>Your favorite movie:
-      <input id="favMovie" type="text" placeholder="favorite movie">
+    <p>Noun:
+      <input id="favMovie" type="text" placeholder="Noun">
     </p>
-    <p>Somewhere to visit:
-      <input id="place" type="text" placeholder="place">
+    <p>Number:
+      <input id="place" type="text" placeholder="Number">
     </p>
     <button id="submit">Submit</button>
     <p id="warning">Please answer all questions.</p>
@@ -197,10 +197,10 @@
       let finishedStory1 = ""
       let finishedStory2 = ""
       let finishedStory3 = ""
-      finishedStory1 += "Welcome, " + firstName.value + ". "
-      finishedStory1 += "I bet you are a nice person, " + firstName.value + ". "
-      finishedStory2 += "Why do you like the movie " + favMovie.value + "? "
-      finishedStory3 += "Why did you name your pet " + place.value + "? "
+      finishedStory1 += "The " + favMovie.value +  " Pizza was invinted by "  + firstName.value +"."
+      finishedStory1 += " "
+      finishedStory2 += "The secret ingedient is easy, just take a lump of " + favMovie.value + " and toss it on the pie"
+      finishedStory3 +=  firstName.value + " Holds the record for eating " + place.value + " slices in one hour. I bet you cant eat just one " 
 
       theStory1.textContent = finishedStory1
       theStory2.textContent = finishedStory2
