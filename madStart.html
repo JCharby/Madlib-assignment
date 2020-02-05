@@ -20,7 +20,7 @@
 
     div {
       padding: 2em;
-      background-color: rgb(116, 98, 153);
+      background-color: rgb(117, 98, 153);
       width: 60%;
       /* margin-bottom: 1em; */
     }
@@ -177,13 +177,13 @@
     function checkComplete() {
       //verify the user filled in the form
       if(firstName.value == ""){
-        warning.textContent = "provide a name"
+        warning.textContent = "provide a Name"
         warning.className = "displayBlock"
       } else if (favMovie.value == "") {
-        warning.textContent = "provide a movie"
+        warning.textContent = "provide a Noun"
         warning.className = "displayBlock"
       } else if (place.value == "") {
-        warning.textContent = "provide a place"
+        warning.textContent = "provide a Number"
         warning.className = "displayBlock"
       } else {
         writeStory()
@@ -200,7 +200,7 @@
       finishedStory1 += "The " + favMovie.value +  " Pizza was invinted by "  + firstName.value +"."
       finishedStory1 += " "
       finishedStory2 += "The secret ingedient is easy, just take a lump of " + favMovie.value + " and toss it on the pie"
-      finishedStory3 +=  firstName.value + " Holds the record for eating " + place.value + " slices in one hour. I bet you cant eat just one " 
+      finishedStory3 +=  firstName.value + " Holds the record for eating " + place.value + " slices in one hour. I bet you cant eat just one "
 
       theStory1.textContent = finishedStory1
       theStory2.textContent = finishedStory2
